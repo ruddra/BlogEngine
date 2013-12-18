@@ -1,0 +1,176 @@
+<head>
+    <style>
+        .whiteText1 {
+            color: #ffffff;
+            text-shadow: 0 0 12px #000;
+            font-size: 20px;
+        }
+
+
+    </style>
+    <meta charset="utf-8">
+    <title>Ruddra's Blog</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+
+    <!-- Bootstrap styles -->
+    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap-theme.css">
+
+    <!-- Font-Awesome -->
+    <link rel="stylesheet" href="{{ STATIC_URL }}font-awesome.css">
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600|PT+Serif:400,400italic' rel='stylesheet'
+          type='text/css'>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ STATIC_URL }}styles-bluegreen.css">
+
+
+    <script src="{{ STATIC_URL }}html5-3.6-respond-1.1.0.min.js"></script>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}bootstrap/js/vendor/jquery/jquery-1.9.1.min.js">')</script>
+
+
+    <link rel="stylesheet" href="css/settings-panel.css">
+    <script type="text/javascript" src="{{ STATIC_URL }}settings-panel.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}analytics.js"></script>
+</head>
+<body>
+<header>
+    <div class="widewrapper masthead">
+        <div class="container">
+            <a href="/blog/" id="logo">
+                <img src="{{ STATIC_URL }}tales-logo.png" alt="Ruddra's Blog">
+            </a>
+
+
+            <nav class="pull-right tales-nav">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav nav-pills navbar-nav">
+
+                        <li>
+                            <a href="/blog/"> Blog </a>
+
+                        </li>
+                        <li>
+                            <a href="/blog/about">About</a>
+                        </li>
+                        <li>
+                            <a href="/blog/archives">Archives</a>
+                        </li>
+                        <li>
+                            <a href="/blog/feed">Feeds</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+
+    <div class="widewrapper subheader">
+        <div class="container">
+            <div class="tales-breadcrumb">
+                <a href="/blog/">Blog</a>
+            </div>
+
+
+            <div class="tales-searchbox">
+
+                <form action="/blog/search/" method="GET">
+                    <button class="searchbutton" type="submit">
+                    </button>
+
+                    <input name="q" class="searchfield" type="text" placeholder="Search" type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="widewrapper main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 blog-main">
+                <div class="row">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+            <aside class="col-md-4 blog-aside">
+
+                <div class="aside-widget">
+                    <header>
+                        <h3>Recent Posts</h3>
+                    </header>
+                    <div class="body">
+                        <ul class="tales-list">
+
+
+                            <li><a href="/blog/{{ object_list1.0.id }}">{{ object_list1.0.title }} </a> on <small>{{ object_list1.0.created.date }} </small></li>
+
+                            <li><a href="/blog/{{ object_list1.1.id }}">{{ object_list1.1.title }} </a> on <small>{{ object_list1.1.created.date }} </small></li>
+
+                            <li><a href="/blog/{{ object_list1.2.id }}">{{ object_list1.2.title }} </a> on <small>{{ object_list1.2.created.date }} </small></li>
+
+                            <li><a href="/blog/{{ object_list1.3.id }}">{{ object_list1.3.title }} </a> on <small>{{ object_list1.3.created.date }} </small></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="aside-widget">
+                    <header>
+                        <h3>All Tags</h3>
+                    </header>
+                    <div class="body clearfix">
+
+                        <div class="tags">
+                            {% for tag in tags %}
+
+                                <a class="whiteText1" href="/blog/tag/{{ tag }}">{{ tag }}</a>&nbsp;
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="widewrapper footer">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-md-4 footer-widget">
+                    <h3><a href="/blog/about">About</a></h3>
+
+                </div>
+
+                <div class="col-md-4 footer-widget">
+                    <h3><a href="/blog/contact">Contact Me</a></h3>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="widewrapper copyright">
+        <div class="container">
+            Ruddra's Blog Developed Using <a
+                href="http://en.wikipedia.org/wiki/Django_%28web_framework%29‎‎">Django</a>, Copyright 2013
+        </div>
+    </div>
+</footer>
+
+<script src="{{ STATIC_URL }}bootstrap.min.js"></script>
+<script src="{{ STATIC_URL }}modernizr.js"></script>
+</body>

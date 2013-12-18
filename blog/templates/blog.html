@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<style>
+    .blogText {
+        font-family: 'Comic Sans Ms';
+        font-size: 12px;
+        min-height: 145px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+</style>
+
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".somearea").addClass("blogText").text(function (index, text) {
+            return text.substr(0, 200);
+        });
+    });
+</script>
+{% extends "base.html" %}
+{% load mathfilters %}
+
+{% block content %}
+    {% for post in object_list %}
+
+        <div class="col-md-6 col-sm-6">
+            <article class=" blog-teaser">
+                <header>
+                    <h3 style="height: 50px;"><a href="/blog/{{ post.id }}">{{ post.title }} </a></h3>
+                    <span class="meta">{{ post.created.date }} by <b>{{ post.author }}</b></span>
+                    <hr>
+                </header>
+
+
+                <div class="somearea">
+
+                    <div class="post_body">
+                        <p> {{ post.body }} </p>
+
+
+                    </div>
+                </div>
+                    <div class="clearfix">
+                        <a href="/blog/{{ post.id }}" class="btn btn-tales-one">Read more</a>
+                    </div>
+
+            </article>
+
+        </div>
+
+    {% endfor %}
+
+
+
+    <div class="paging" style="clear: both;">
+
+
+        {% if page_num <= last_page_number %}
+            <b>  <a href="/blog/page/{{ page_num|add:'1' }}" class="newer"> Older Posts </a> </b>
+        {% endif %}
+        <span>&bull;</span>
+        {% if page_num > 1 %}
+            <b><a href="/blog/page/{{ page_num|add:'-1' }}" class="older"> Newer Posts </a></b>
+        {% endif %}
+
+    </div>
+
+
+
+{% endblock %}
+
+
