@@ -1,3 +1,4 @@
+{% extends "base.html" %}
 
 <style>
     .whiteText {
@@ -19,132 +20,30 @@
 
 
     </style>
-    <meta charset="utf-8">
-    <title>Ruddra's Blog</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-
-
-    <!-- Bootstrap styles -->
-    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap-theme.css" >
-
-    <!-- Font-Awesome -->
-    <link rel="stylesheet" href="{{ STATIC_URL }}font-awesome.css" >
-
-
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600|PT+Serif:400,400italic' rel='stylesheet'
-          type='text/css'>
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="{{ STATIC_URL }}styles-bluegreen.css" >
-
-
-    <script src="{{ STATIC_URL }}html5-3.6-respond-1.1.0.min.js"></script>
-
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-    <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}bootstrap/js/vendor/jquery/jquery-1.9.1.min.js">')</script>
-
-
-    <link rel="stylesheet" href="css/settings-panel.css">
-    <script type="text/javascript" src="{{ STATIC_URL }}settings-panel.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}analytics.js"></script>
-</head>
+   
 {% block content %}
-    <body>
-    <header>
-        <div class="widewrapper masthead">
-            <div class="container">
-                <a href="#" id="logo">
-                    <img src="{{ STATIC_URL }}tales-logo.png" alt="Ruddra's Blog">
-                </a>
+    
+<div class="widewrapper main">
 
+    
 
-                <nav class="pull-right tales-nav">
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav nav-pills navbar-nav">
-
-                            <li>
-                                <a href="/blog/"> Blog </a>
-
-                            </li>
-                            <li>
-                                <a href="/blog/about">About</a>
-                            </li>
-                            <li>
-                                <a href="/blog/archives">Archives</a>
-                            </li>
-                            <li>
-                                <a href="/blog/feed">Feeds</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-
-            </div>
-        </div>
-
-        <div class="widewrapper subheader">
-            <div class="container">
-                <div class="tales-breadcrumb">
-                    <a href="/blog/">Blog</a>
-                </div>
-
-
-                <div class="tales-searchbox">
-                    <form action="/blog/search/" method="GET">
-                        <button class="searchbutton" type="submit">
-                        </button>
-
-                        <input name="q" class="searchfield" type="text" placeholder="Search" type="submit">
-                    </form>
-            </div>
-        </div>
-    </div>
-    </header>
-
-    <div class="widewrapper main">
-        <div class="fixSize">
-            <b><span class="whiteText1">&nbsp;Tags </span></b>
-            <hr>
+         
+            <h2><span><b>Tag:</b> {{ tag }}  </span></h2>
+ <br>
+      
             <ul class="tales-list">
-            {% for post in post %}
+           {% for post in post %}
 
-                <span class="about-italic"> <p>&nbsp;{{ post.created }} : <a href="/blog/{{ post.id }}">{{ post.title }} </a></p> </span>
+              <li>  <span align="left" class="about-italic"> <p>&nbsp;{{ post.created }} : <a href="/blog/{{ post.id }}">{{ post.title }} </a> </span></li>
 
 
 
             {% endfor %}
             </ul>
+
+        
+
         </div>
-        <footer>
-            <div class="widewrapper footer">
-                <div class="container">
-                    <div class="row">
-
-
-                        <div class="col-md-4 footer-widget">
-                            <h3><a href="/blog/about">About</a></h3>
-
-                        </div>
-
-                        <div class="col-md-4 footer-widget">
-                            <h3><a href="#">Contact Me</a></h3>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="widewrapper copyright">
-                <div class="container">
-                    Ruddra's Blog Developed Using <a href="http://en.wikipedia.org/wiki/Django_%28web_framework%29‎‎">Django</a>,
-                    Copyright 2013
-                </div>
-            </div>
-        </footer>
-    </div>
-    </body>
 {% endblock %}
+        {% block sidebar %}
+        {% endblock %}

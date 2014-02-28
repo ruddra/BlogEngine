@@ -1,0 +1,25 @@
+{% block scripts %}
+
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+     <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}bootstrap/js/vendor/jquery/jquery-1.9.1.min.js">')</script>
+     <script src="{{ STATIC_URL }}html5-3.6-respond-1.1.0.min.js"></script>
+     <script type="text/javascript" src="{{ STATIC_URL }}settings-panel.js"></script>
+     <script type="text/javascript" src="{{ STATIC_URL }}analytics.js"></script>
+     <script src="{{ STATIC_URL }}bootstrap.min.js"></script>
+     <script src="{{ STATIC_URL }}modernizr.js"></script>
+
+     <script type="text/javascript">
+    $(document).ready(function () {
+        $(".somearea").addClass("blogText").text(function (index, text) {
+            return text.substr(0, 200);
+        });
+    });
+</script>
+
+
+
+
+
+
+
+{% endblock %}

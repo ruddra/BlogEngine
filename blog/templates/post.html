@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 <style>
 
     .blueColor {
@@ -14,8 +14,14 @@
     }
 </style>
 
-{% extends "base.html" %}
+
+
+
 {% block content %}
+<div class="container">
+        <div class="row">
+            <div class="col-md-8 blog-main">
+                <div class="row">
 
     <article class="blog-post">
     <header>
@@ -54,7 +60,7 @@
 
     <script type="text/javascript">
 
-        var disqus_shortname = 'example'; // required: replace example with your forum shortname
+        var disqus_shortname = 'ruddracom'; // required: replace example with your forum shortname
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function () {
@@ -69,7 +75,7 @@
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'example'; // required: replace example with your forum shortname
+        var disqus_shortname = 'ruddracom'; // required: replace example with your forum shortname
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function () {
@@ -84,6 +90,7 @@
         Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </article>
-
+ </div>
+            </div>
 
 {% endblock %}
